@@ -270,3 +270,25 @@ void pares(BST raiz, BST raizOriginal, int k){
     pares(raiz->dir, raizOriginal, k);
 }
 
+int altura(BST raiz){
+    if(raiz == NULL) return -1;
+
+    int esq = altura(raiz->esq);
+    int dir = altura(raiz->dir);
+
+    if(esq > dir ){
+        return esq + 1;
+    }else{
+        return dir + 1;
+    }
+     
+}
+
+int isomorfas(BST r1, BST r2){
+    if(r1 == NULL && r2 == NULL ) return 1;
+
+    if(r1 == NULL || r2 == NULL ) return 0;
+
+    return isomorfas(r1->esq, r2->esq) && isomorfas(r1->dir, r2->dir);
+}
+

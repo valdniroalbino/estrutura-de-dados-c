@@ -55,6 +55,9 @@ int distancia(BST raiz, int x, int y);
 //exer11
 void pares(BST raiz, BST raizOriginal, int k);
 
+//exer12
+int altura(BST raiz);
+
 
 
 #endif
