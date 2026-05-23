@@ -40,6 +40,12 @@ int bst_verificar(BST raiz);
 int bst_iguais(BST raiz1, BST raiz2);
 
 //Eexer7
-int bst_free_folhas(BST raiz);
+BST bst_free_folhas(BST raiz);
+
+//exer8
+BST ac(BST raiz, int x,int y);
+
+//exer9
+BST somaFilhos(BST raiz);
 
 #endif

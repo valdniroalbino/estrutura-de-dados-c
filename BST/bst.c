@@ -209,3 +209,31 @@ BST bst_free_folhas(BST raiz){
 
     return raiz;
 }
+
+BST ac(BST raiz, int x, int y){
+    if(raiz == NULL) return NULL;
+
+    if(raiz->chave == x || raiz->chave == y) return raiz;
+
+    BST esq = ac(raiz->esq,x,y);
+    BST dir = ac(raiz->dir,x,y);
+
+    if(esq != NULL && dir != NULL) return raiz;
+
+    return esq != NULL ? esq : dir ;
+}
+
+BST somaFilhos(BST raiz){
+    if(raiz == NULL ) return;
+    if(raiz->esq == NULL && raiz->dir == NULL) return;
+
+    somaFilho(raiz->esq);
+    somaFilho(raiz->dir);
+
+    int valorEsq = (raiz->esq != NULL)? raiz->esq->chave: 0;
+    int valorDir = (raiz->dir != NULL)? raiz->dir->chave: 0;
+    
+    raiz->chave = valorEsq + valorDir;
+
+}
+
