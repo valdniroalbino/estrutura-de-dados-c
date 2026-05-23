@@ -237,3 +237,36 @@ BST somaFilhos(BST raiz){
 
 }
 
+int distanciaAux(BST raiz,int x, int passos){
+    if (raiz == NULL) return -1;
+
+    if (raiz->chave == x) return passos;
+
+    int esq = distanciaAux(raiz->esq,x,passos+1);
+    if( esq != -1) return esq;
+
+    return distanciaAux(raiz->dir, x, passos+1);
+}
+
+int distancia(BST raiz, int x, int y){
+    BST ancestral = ac(raiz,x,y);
+
+    int distP = distanciaAux(ancestral,x,0);
+    int distQ = distanciaAux(ancestral,y,0);
+
+    return distP + distQ;
+}
+
+void pares(BST raiz, BST raizOriginal, int k){
+    if(raiz == NULL ) return;
+
+    pares(raiz->esq, raizOriginal, k);
+
+    int complemento = k - raiz->chave;
+
+    if (complemento > raiz->chave && busca(raizOriginal, complemento))
+        printf("(%d, %d)\n", raiz->chave, complemento);
+
+    pares(raiz->dir, raizOriginal, k);
+}
+

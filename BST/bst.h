@@ -48,4 +48,13 @@ BST ac(BST raiz, int x,int y);
 //exer9
 BST somaFilhos(BST raiz);
 
+//exer10
+int distanciaAux(BST raiz,int x, int passos);
+int distancia(BST raiz, int x, int y);
+
+//exer11
+void pares(BST raiz, BST raizOriginal, int k);
+
+
+
 #endif
